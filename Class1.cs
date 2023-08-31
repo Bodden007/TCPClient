@@ -10,11 +10,8 @@ namespace TCPClient
 {
     class Class1
     {
-        public void Connect()
-
+        public void Connect(int port)
         {
-            Int32 port = 2014;
-
             string? message;
             TcpClient client = new TcpClient("localhost", port);
 
@@ -44,7 +41,7 @@ namespace TCPClient
                     }
                     else
                     {
-                        message.Remove(0);
+                        message!.Remove(0);
                     }
                 }
             }

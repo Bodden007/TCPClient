@@ -16,15 +16,7 @@ namespace TCPClient
             Int32 port = 2014;
 
             string? message;
-
-            //TcpClient client = new TcpClient();
             TcpClient client = new TcpClient("localhost", port);
-            ////IPAddress ipAddr = IPAddress.Parse("localhost");
-            ////client.Connect(adressL, port);
-            //NetworkStream stream = client.GetStream();
-
-           // IPAddress ipAddr = IPAddress.Parse("127.0.0.1");
-           // client.Connect(ipAddr, port);
 
             NetworkStream stream = client.GetStream();
 
@@ -32,15 +24,13 @@ namespace TCPClient
             {
                 while (true)
                 {
-                    
+
 
                     message = Console.ReadLine();
 
-                   Byte[] data = System.Text.Encoding.ASCII.GetBytes($"{message}\n");
-                    //Byte[] data = System.Text.Encoding.ASCII.GetBytes(message);
+                    Byte[] data = System.Text.Encoding.ASCII.GetBytes($"{message}\n");
 
                     stream.Write(data, 0, data.Length);
-                    //stream.Flush();
 
                     Console.WriteLine("Sent: {0}", message);
 
@@ -65,12 +55,10 @@ namespace TCPClient
             catch (SocketException e)
             {
                 Console.WriteLine("SocketException: {0}", e);
-                
+
             }
             finally
             {
-                //stream.Close();
-                //client.Close();
 
             }
 
